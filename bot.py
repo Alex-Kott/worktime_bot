@@ -93,9 +93,12 @@ def reply(m):
 	if action == 'stat':
 		stat(m)
 	elif action == 'arrival':
-		u.arrive()
+		if u.arrive():
+			bot.send_message(sid(m), 'Привет, {}!'.format(m.from_user.first_name))
 	elif action == 'departure':
-		u.depart()
+		if u.depart():
+			bot.send_message(sid(m), 'Пока, {}!'.format(m.from_user.first_name))
+
 
 
 class Watcher:

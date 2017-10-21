@@ -31,16 +31,22 @@ class User(BaseModel):
 	def arrive(self):
 		now = datetime.now()
 		today = Schedule.get_today(self.user_id)
-		if today.arrival_time != None:
+		if today.arrival_time == None:
 			today.arrival_time = now.time()
 			today.save()
+			return True
+		else:
+			return False
 
 	def depart(self):
 		now = datetime.now()
 		today = Schedule.get_today(self.user_id)
-		if today.departure_time != None:
+		if today.departure_time == None:
 			today.departure_time = now.time()
 			today.save()
+			return True
+		else:
+			return False
 
 
 
