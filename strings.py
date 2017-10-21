@@ -1,0 +1,2 @@
+arrival 	= "arrival"
+departure 	= "departure"
